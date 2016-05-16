@@ -1,2 +1,3 @@
 # maven
-Apache Maven
+
+Alpine-based Docker image with Apache Maven
