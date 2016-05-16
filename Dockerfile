@@ -7,3 +7,5 @@ WORKDIR /opt/maven
 RUN curl -Ls "$MAVEN_RELEASE" | tar zxvf - -C /opt/maven --strip=1
 
 ENV PATH="$PATH:/opt/maven/bin"
+
+ENTRYPOINT [ "mvn" ]
