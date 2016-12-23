@@ -9,3 +9,5 @@ RUN VERSION="3.3.9" && \
   ln -sv apache-maven* /opt/maven
 
 ENV PATH="$PATH:/opt/maven/bin"
+
+ENTRYPOINT [ "mvn" ]
