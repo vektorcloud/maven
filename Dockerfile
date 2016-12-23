@@ -1,12 +1,11 @@
-FROM quay.io/vektorcloud/oracle-jre:latest
+FROM quay.io/vektorcloud/openjdk:latest
 
-ENV MAVEN_VERSION="3.3.9"
-ENV MAVEN_RELEASE="http://www-eu.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz"
-
-RUN \
-  curl -Lo /tmp/maven.tar.gz "$MAVEN_RELEASE" && \
-  mkdir /opt/maven && \
-  tar -xvf /tmp/maven.tar.gz -C /opt/maven --strip=1 && \
-  rm -v /tmp/maven.tar.gz
+RUN VERSION="3.3.9" && \
+  wget http://www-us.apache.org/dist/maven/maven-3/$VERSION/binaries/apache-maven-$VERSION-bin.tar.gz -O /tmp/maven.tar.gz && \
+  mkdir -p /opt && \
+  cd /opt && \
+  tar -xvf /tmp/maven.tar.gz && \
+  rm -v /tmp/maven.tar.gz && \
+  ln -sv apache-maven* /opt/maven
 
 ENV PATH="$PATH:/opt/maven/bin"
