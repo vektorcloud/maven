@@ -1,6 +1,6 @@
 # maven
 
-![circleci][circleci]
+[![circleci][circleci]](https://circleci.com/gh/vektorcloud/maven)
 
 Alpine-based Docker image with Apache Maven
 
